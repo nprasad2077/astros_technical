@@ -21,7 +21,16 @@ def generate_pitcher_stats(csv_file):
     result_df = merged_df[['Pitcher', 'TotalPitches', 'AutoPitchType', 'PitchTypeCount', 'AvgVelo']]
     result_df = result_df.sort_values(by=['Pitcher', 'TotalPitches'], ascending=[True, False])
     
-    return result_df
+    # Rename Columns for visibility.
+    renamed_result = result_df.rename(columns={
+        'Pitcher': 'Pitcher Name',
+        'AutoPitchType': 'Pitch Type',
+        'PitchTypeCount': 'Pitch Type Count',
+        'TotalPitches': 'Total Pitches',
+        'AvgVelo': 'Average Velocity'
+    })
+    
+    return renamed_result
     
 
 
@@ -31,4 +40,4 @@ def generate_pitcher_stats(csv_file):
 pitcher_stats = generate_pitcher_stats('./data/data_1.csv')
 print(pitcher_stats)
 
-pitcher_stats.to_csv('./data/query_one.csv', index=False)
+pitcher_stats.to_csv('./data/query_one1.csv', index=False)
