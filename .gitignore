@@ -172,5 +172,6 @@ Pipfile.lock
 
 # Ignore any data files (if you don't want them included in your repository)
 /data
+./data
 
 # Ignore any other project-specific files or directories
